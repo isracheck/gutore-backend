@@ -38,7 +38,7 @@ public class Company implements Serializable {
 	private String email;
 
 	@Column(nullable = false)
-	private String pass;
+	private String password;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idcompany", referencedColumnName = "idcompany")
@@ -93,12 +93,12 @@ public class Company implements Serializable {
 		this.email = email;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public List<Slot> getSlot() {
