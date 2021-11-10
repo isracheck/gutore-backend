@@ -22,13 +22,13 @@ import com.gutore.websitebackend.mapper.Mapper;
 import com.gutore.websitebackend.service.ICompanyService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/companies")
 public class CompanyRestController {
 	
 	@Autowired
 	private ICompanyService companyService;
 	
-	@GetMapping("/companies")
+	@GetMapping("/all")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Company> getCompanies(){
 		return companyService.findAll();
@@ -61,7 +61,7 @@ public class CompanyRestController {
 			List<Company> companies = new ArrayList<>();
 			companies.add(companyDb);
 			List<MCompany> mCompanies = new ArrayList<>();
-			mCompanies = Mapper.convertirLista(companies);
+			mCompanies = Mapper.convertirListaCompanies(companies);
 			return new ResponseEntity<>(mCompanies, HttpStatus.OK);
 		}else {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);

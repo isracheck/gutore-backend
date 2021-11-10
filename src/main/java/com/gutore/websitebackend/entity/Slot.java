@@ -31,6 +31,12 @@ public class Slot implements Serializable {
 
 	@Column(name = "slots", nullable = false)
 	private Integer numberSlots;
+	
+	@Column(name = "idcompany", nullable = false)
+	private Long idCompany;
+	
+	@Column(name = "user")
+	private String user;
 
 	public Long getId() {
 		return id;
@@ -70,6 +76,22 @@ public class Slot implements Serializable {
 
 	public void setNumberSlots(Integer numberSlots) {
 		this.numberSlots = numberSlots;
+	}
+
+	public Long getIdCompany() {
+		return idCompany;
+	}
+
+	public void setIdCompany(Long idCompany) {
+		this.idCompany = idCompany;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 	private static final long serialVersionUID = 1L;
