@@ -44,6 +44,24 @@ public class CompanyRestController {
 		}
 	}
 	
+	@GetMapping("/findCompanyByName/{name}")
+	public List<Company> findCompanyByName(@PathVariable(value = "name") String name) {
+
+		if (name != null && !name.isEmpty()) {
+			List<Company> companyDb = new ArrayList<>();
+			companyDb = companyService.findCompanyByName(name);
+			return companyDb;
+		} else {
+			return companyService.findAll();
+		}
+
+	}
+	
+	@GetMapping("/findCompanyByName/")
+	public List<Company> findCompanyByName() {
+		return companyService.findAll();
+	}
+	
 	@PostMapping("/signUp")
 	public ResponseEntity<Void> addCompany(@RequestBody Company company){
 		if(companyService.findCompany(company)==null) {

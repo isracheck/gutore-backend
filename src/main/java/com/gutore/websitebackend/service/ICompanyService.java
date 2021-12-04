@@ -21,6 +21,8 @@ public interface ICompanyService {
 	public void deleteCompany(Long id);
 	
 	public Company findById(Long id);
+
+	public List<Company> findCompanyByName(String name);
 	
 
 }

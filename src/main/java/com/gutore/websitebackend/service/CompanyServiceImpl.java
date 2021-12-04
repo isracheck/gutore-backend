@@ -33,6 +33,12 @@ public class CompanyServiceImpl implements ICompanyService {
 	public Company findCompany(Company company) {
 		return (Company) companyDao.findByEmail(company.getEmail());
 	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Company> findCompanyByName(String name) {
+		return (List<Company>) companyDao.findByName(name);
+	}
 
 	@Override
 	public Company checkCompanyLogin(Company company) {
